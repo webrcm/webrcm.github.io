@@ -129,6 +129,7 @@ document.getElementById("goButton").addEventListener("click", async () => {
       var uInt8Array = new Uint8Array(this.response);
       launchPayload(uInt8Array); // launch payload when that's done
     };
+    xhr.send()
     return;
   }
 
