@@ -9,11 +9,13 @@
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
 textarea {width:100%;}
+.switchbru {background-color:#414548;}
 </style>
+
 <body>
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar w3-blue-grey w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+<nav class="w3-sidebar switchbru w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
     <h3 class="w3-padding-64"><b>For The Users</b></h3>
@@ -27,8 +29,8 @@ textarea {width:100%;}
 </nav>
 
 <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large w3-blue-grey w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button w3-blue-grey w3-margin-right" onclick="w3_open()">☰</a>
+<header class="w3-container w3-top w3-hide-large switchbru w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button switchbru w3-margin-right" onclick="w3_open()">☰</a>
   <span>For The Users</span>
 </header>
 
@@ -71,7 +73,7 @@ textarea {width:100%;}
         </p>
       </form>
 
-      <button id="goButton" class="w3-button w3-block w3-padding-large w3-blue-grey w3-margin-bottom">Do the thing!</button>
+      <button id="goButton" class="w3-button w3-block w3-padding-large switchbru w3-margin-bottom">Do the thing!</button>
  
 	<div id="results">
     <h3>Result:</h3>
@@ -150,4 +152,3 @@ function w3_close() {
 
 </body>
 </html>
-
