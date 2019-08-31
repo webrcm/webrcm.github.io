@@ -1,0 +1,12 @@
+image: node:12.4.0
+
+pages:
+  stage: deploy
+  script:
+    - mkdir -p public
+    - cp -r . public || true
+  artifacts:
+    paths:
+      - public
+  only:
+    - master
