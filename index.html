@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>FTU - Web Fusee Launcher</title>
+<title>4TU - Web Fusee Launcher</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -47,28 +47,20 @@ textarea {width:100%;}
     <hr style="width:50px;border:3px solid grey" class="w3-round">
           <form id="mainForm">
         <p>
-          <input class="w3-radio" type="radio" name="payload" id="fusee.bin" value="fusee.bin">
-          <label for="fusee.bin">Example payload (fusee.bin)</label>
-        </p>
-        <p>
-          <input class="w3-radio" type="radio" name="payload" id="biskeydump.bin" value="biskeydump.bin">
-          <label for="biskeydump.bin">biskeydump.bin (<a href="https://switchtools.sshnuke.net">v6</a>)</label>
-        </p>
-        <p>
-          <input class="w3-radio" type="radio" name="payload" id="memloader.bin" value="memloader.bin">
-          <label for="memloader.bin">memloader (<a href="https://switchtools.sshnuke.net">v1</a>)</label>
-        </p>
-        <p>
-          <input class="w3-radio" type="radio" name="payload" id="briccmii.bin" value="briccmii.bin">
-          <label for="briccmii.bin">briccmii (<a href="https://switchtools.sshnuke.net">v2</a>) (Use at your own risk)</label>
+          <input class="w3-radio" type="radio" name="payload" id="Lockpick_RCM.bin" value="Lockpick_RCM.bin">
+          <label for="Lockpick_RCM.bin">Lockpick RCM (<a href="https://github.com/shchmue/Lockpick_RCM/releases">v1.8.0</a>)</label>
         </p>
         <p>
           <input class="w3-radio" type="radio" name="payload" id="hekate_ctcaer.bin" value="hekate_ctcaer.bin" checked>
-          <label for="hekate_ctcaer.bin">Recent CTCaer hekate (<a href="https://github.com/CTCaer/hekate/releases">v5.0.1</a>) (You probably want to combine this payload with <a href="https://github.com/tumGER/SDFilesSwitch/releases">these sdfiles</a> extracted to the root of your SD card.)</label>
+          <label for="hekate_ctcaer.bin">CTCaer hekate (<a href="https://github.com/CTCaer/hekate/releases">v5.1.1</a>)
+        </p>
+        <p>
+          <input class="w3-radio" type="radio" name="payload" id="fusee-primary.bin" value="fusee-primary.bin">
+          <label for="fusee-primary.bin">Atmosphere fusee-primary (<a href="https://github.com/Atmosphere-NX/Atmosphere/releases">v0.10.1</a>)</label>
         </p>
         <p>
           <input class="w3-radio" type="radio" name="payload" id="uploaded" value="uploaded">
-          <label for="uploaded">Upload payload:</label>
+          <label for="uploaded">Upload .bin payload:</label>
           <input type="file" id="payloadUpload">
         </p>
       </form>
@@ -124,10 +116,10 @@ textarea {width:100%;}
     <hr style="width:50px;border:3px solid grey" class="w3-round">
         <p>Fusee Launcher ported to JavaScript using WebUSB.</p>
     <p>
-      Source can be found on <a href="https://github.com/fortheusers/switch.exploit">GitHub</a> under the MIT license (or by hitting view source, there is no backend!).
-      Ported from <a href="https://github.com/reswitched/fusee-launcher">fusee-launcher</a>.
-      Thanks to ktemkin and ReSwitched for Fusée Gelée and a ton of other things!
-      Web exploit code developed by <a href="https://github.com/atlas44/web-fusee-launcher">atlas44</a>.
+      Source can be found on <a href="https://gitlab.com/4TU/switch.exploit">GitLab</a> under the MIT license (or by hitting view source, there is no backend!).
+      <br>Ported from <a href="https://github.com/reswitched/fusee-launcher">fusee-launcher</a>.
+      <br>Thanks to ktemkin and ReSwitched for Fusée Gelée and a ton of other things!
+      <br>Web exploit code developed by <a href="https://github.com/atlas44/web-fusee-launcher">atlas44</a>.
     </p>
   </div>
   
