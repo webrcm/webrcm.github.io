@@ -121,9 +121,16 @@ document.getElementById("goButton").addEventListener("click", async () => {
     }
     payload = new Uint8Array(await readFileAsArrayBuffer(file));
   } else {
-    // fetch the payload file from the same server as a UInt8Array
+    let payloadURL = 'payloads/' + payloadType;
+    if (payloadType == "Lockpick_RCM.bin") {
+      payloadURL = "https://github.com/shchmue/Lockpick_RCM/releases/latest/download/Lockpick_RCM.bin";
+    } else if (payloadType == "fusee-primary.bin") {
+      payloadURL = "https://github.com/Atmosphere-NX/Atmosphere/releases/latest/download/fusee-primary.bin";
+    }
+
+    // fetch the payload file as a UInt8Array
     var xhr = new XMLHttpRequest();
-    xhr.open('GET', 'payloads/'+payloadType, true);
+    xhr.open('GET', payloadURL, true);
     xhr.responseType = 'arraybuffer';
     xhr.onload = function(e) {
       var uInt8Array = new Uint8Array(this.response);
