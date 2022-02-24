@@ -124,8 +124,8 @@ document.getElementById("goButton").addEventListener("click", async () => {
     let payloadURL = 'payloads/' + payloadType;
     if (payloadType == "Lockpick_RCM.bin") {
       payloadURL = "https://github.com/shchmue/Lockpick_RCM/releases/latest/download/Lockpick_RCM.bin";
-    } else if (payloadType == "fusee-primary.bin") {
-      payloadURL = "https://github.com/Atmosphere-NX/Atmosphere/releases/latest/download/fusee-primary.bin";
+    } else if (payloadType == "fusee.bin") {
+      payloadURL = "https://github.com/Atmosphere-NX/Atmosphere/releases/latest/download/fusee.bin";
     }
 
     // fetch the payload file as a UInt8Array
