@@ -121,12 +121,13 @@ document.getElementById("goButton").addEventListener("click", async () => {
     }
     payload = new Uint8Array(await readFileAsArrayBuffer(file));
   } else {
+    // TODO: these stopped working at some point, the auto-fetching of payloads
     let payloadURL = 'payloads/' + payloadType;
-    if (payloadType == "Lockpick_RCM.bin") {
-      payloadURL = "https://github.com/shchmue/Lockpick_RCM/releases/latest/download/Lockpick_RCM.bin";
-    } else if (payloadType == "fusee.bin") {
-      payloadURL = "https://github.com/Atmosphere-NX/Atmosphere/releases/latest/download/fusee.bin";
-    }
+    // if (payloadType == "Lockpick_RCM.bin") {
+    //   payloadURL = "https://github.com/shchmue/Lockpick_RCM/releases/latest/download/Lockpick_RCM.bin";
+    // } else if (payloadType == "fusee.bin") {
+    //   payloadURL = "https://github.com/Atmosphere-NX/Atmosphere/releases/latest/download/fusee.bin";
+    // }
 
     // fetch the payload file as a UInt8Array
     var xhr = new XMLHttpRequest();
