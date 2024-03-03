@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html>
-<title>4TU - Web Fusee Launcher</title>
+<title>RCM Web Fusee Launcher</title>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
@@ -9,16 +9,16 @@
 body,h1,h2,h3,h4,h5 {font-family: "Poppins", sans-serif}
 body {font-size:16px;}
 textarea {width:100%;}
-.switchbru {background-color:#414548;}
+.sidebar {background-color:#414548;}
 </style>
 
 <body>
 
 <!-- Sidebar/menu -->
-<nav class="w3-sidebar switchbru w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
+<nav class="w3-sidebar sidebar w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
   <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
   <div class="w3-container">
-    <h3 class="w3-padding-64 w3-text-white"><b>For The Users</b></h3>
+    <h3 class="w3-padding-64 w3-text-white"><b>Web RCM</b></h3>
   </div>
   <div class="w3-bar-block">
     <a href="#showcase"  onclick="w3_close();scroll('showcase');" class="w3-bar-item w3-button w3-hover-white w3-text-white">Do the thing</a>  
@@ -29,9 +29,9 @@ textarea {width:100%;}
 </nav>
 
 <!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large switchbru w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button switchbru w3-margin-right w3-text-white" onclick="w3_open()">☰</a>
-  <span class="w3-text-white">For The Users</span>
+<header class="w3-container w3-top w3-hide-large sidebar w3-xlarge w3-padding">
+  <a href="javascript:void(0)" class="w3-button sidebar w3-margin-right w3-text-white" onclick="w3_open()">☰</a>
+  <span class="w3-text-white">Web RCM</span>
 </header>
 
 <!-- Overlay effect when opening sidebar on small screens -->
@@ -42,8 +42,8 @@ textarea {width:100%;}
 
   <!-- Header -->
   <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1 class="w3-xxlarge"><b>Web Fusée Launcher</b></h1>
-    <h1 class="w3-xlarge w3-text-blue-grey"><b>Choose a Payload :</b></h1>
+    <h1 class="w3-xxlarge"><b>WebUSB Fusée Launcher</b></h1>
+    <h1 class="w3-xlarge w3-text-blue-grey"><b>Choose a Payload</b></h1>
     <hr style="width:50px;border:3px solid grey" class="w3-round">
           <form id="mainForm">
         <p>
@@ -56,12 +56,12 @@ textarea {width:100%;}
         </p>
         <p>
           <input class="w3-radio" type="radio" name="payload" id="uploaded" value="uploaded">
-          <label for="uploaded">Upload .bin payload:</label>
+          <label for="uploaded">Custom .bin payload:</label>
           <input type="file" id="payloadUpload">
         </p>
       </form>
 
-      <button id="goButton" class="w3-button w3-block w3-padding-large switchbru w3-margin-bottom w3-text-white">Do the thing!</button>
+      <button id="goButton" class="w3-button w3-block w3-padding-large sidebar w3-margin-bottom w3-text-white">Do the thing!</button>
  
 	<div id="results">
     <h3>Result:</h3>
@@ -74,7 +74,7 @@ textarea {width:100%;}
   
   <!-- Services -->
   <div class="w3-container" id="instructions" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Instructions :</b></h1>
+    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Instructions</b></h1>
     <hr style="width:50px;border:3px solid grey" class="w3-round">
     <p>
       <ol>
@@ -89,7 +89,7 @@ textarea {width:100%;}
   
   <!-- Designers -->
   <div class="w3-container" id="additional" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Extra Info :</b></h1>
+    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Extra Info</b></h1>
     <hr style="width:50px;border:3px solid grey" class="w3-round">
     <p>
       <ul>
@@ -109,11 +109,11 @@ textarea {width:100%;}
 
   <!-- Packages / Pricing Tables -->
   <div class="w3-container" id="about" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>About.</b></h1>
+    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>About</b></h1>
     <hr style="width:50px;border:3px solid grey" class="w3-round">
         <p>Fusee Launcher ported to JavaScript using WebUSB.</p>
     <p>
-      Source can be found on <a href="https://gitlab.com/4TU/switch.exploit">GitLab</a> under the MIT license (or by hitting view source, there is no backend!).
+      Source can be found on <a href="https://github.com/webrcm/webrcm.github.io">GitHub</a> under the MIT license (or by hitting view source, there is no backend!).
       <br>Ported from <a href="https://github.com/reswitched/fusee-launcher">fusee-launcher</a>.
       <br>Thanks to ktemkin and ReSwitched for Fusée Gelée and a ton of other things!
       <br>Web exploit code developed by <a href="https://github.com/atlas44/web-fusee-launcher">atlas44</a>.
@@ -124,7 +124,7 @@ textarea {width:100%;}
 </div>
 
 <!-- W3.CSS Container -->
-<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://fortheusers.org/" title="fortheusers.org" target="_blank" class="w3-hover-opacity">fortheusers.org</a></p></div>
+<div class="w3-light-grey w3-container w3-padding-32" style="margin-top:75px;padding-right:58px"><p class="w3-right">Powered by <a href="https://github.com/webrcm/" title="github.com/webrcm" target="_blank" class="w3-hover-opacity">github.com/webrcm</a></p></div>
 
 <script>
 // Script to open and close sidebar

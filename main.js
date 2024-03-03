@@ -106,8 +106,17 @@ async function launchPayload(payload) {
 }
 
 document.getElementById("goButton").addEventListener("click", async () => {
-  logOutput("Requesting access to device...");
-  device = await navigator.usb.requestDevice({ filters: [{ vendorId: 0x0955 }] });
+  if (!navigator.usb) {
+    logOutput("Browser does not support WebUSB! See the instructions below.");
+    return;
+  }
+  logOutput("Requesting access to USB device...");
+  try {
+    device = await navigator.usb.requestDevice({ filters: [{ vendorId: 0x0955 }] });
+  } catch (e) {
+    logOutput(e);
+    return;
+  }
 
   const payloadType = document.forms.mainForm.payload.value;
   logOutput(`Preparing to launch ${payloadType}...`);
@@ -116,18 +125,13 @@ document.getElementById("goButton").addEventListener("click", async () => {
   if (payloadType === "uploaded") {
     const file = document.getElementById("payloadUpload").files[0];
     if (!file) {
-      alert("You need to upload a file, to use an uploaded file.");
+      alert("No file selected.");
       return;
     }
     payload = new Uint8Array(await readFileAsArrayBuffer(file));
   } else {
     // TODO: these stopped working at some point, the auto-fetching of payloads
     let payloadURL = 'payloads/' + payloadType;
-    // if (payloadType == "Lockpick_RCM.bin") {
-    //   payloadURL = "https://github.com/shchmue/Lockpick_RCM/releases/latest/download/Lockpick_RCM.bin";
-    // } else if (payloadType == "fusee.bin") {
-    //   payloadURL = "https://github.com/Atmosphere-NX/Atmosphere/releases/latest/download/fusee.bin";
-    // }
 
     // fetch the payload file as a UInt8Array
     var xhr = new XMLHttpRequest();
