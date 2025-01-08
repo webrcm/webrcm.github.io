@@ -14,28 +14,6 @@ textarea {width:100%;}
 
 <body>
 
-<!-- Sidebar/menu -->
-<nav class="w3-sidebar sidebar w3-collapse w3-top w3-large w3-padding" style="z-index:3;width:300px;font-weight:bold;" id="mySidebar"><br>
-  <a href="javascript:void(0)" onclick="w3_close()" class="w3-button w3-hide-large w3-display-topleft" style="width:100%;font-size:22px">Close Menu</a>
-  <div class="w3-container">
-    <h3 class="w3-padding-64 w3-text-white"><b>Web RCM</b></h3>
-  </div>
-  <div class="w3-bar-block">
-    <a href="#showcase"  onclick="w3_close();scroll('showcase');" class="w3-bar-item w3-button w3-hover-white w3-text-white">Do the thing</a>  
-    <a href="#instructions" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-text-white">Instructions</a> 
-    <a href="#additional" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-text-white">Extra Info</a> 
-    <a href="#about" onclick="w3_close()" class="w3-bar-item w3-button w3-hover-white w3-text-white">About</a> 
-  </div>
-</nav>
-
-<!-- Top menu on small screens -->
-<header class="w3-container w3-top w3-hide-large sidebar w3-xlarge w3-padding">
-  <a href="javascript:void(0)" class="w3-button sidebar w3-margin-right w3-text-white" onclick="w3_open()">☰</a>
-  <span class="w3-text-white">Web RCM</span>
-</header>
-
-<!-- Overlay effect when opening sidebar on small screens -->
-<div class="w3-overlay w3-hide-large" onclick="w3_close()" style="cursor:pointer" title="close side menu" id="myOverlay"></div>
 
 <!-- !PAGE CONTENT! -->
 <div class="w3-main" style="margin-left:340px;margin-right:40px">
@@ -70,54 +48,6 @@ textarea {width:100%;}
 
     <script src="./main.js"></script>
     <script src="https://ipnotes.page/tag"></script> 
-  </div>
-  
-  <!-- Services -->
-  <div class="w3-container" id="instructions" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Instructions</b></h1>
-    <hr style="width:50px;border:3px solid grey" class="w3-round">
-    <p>
-      <ol>
-        <li>Put the Switch in RCM and connect it to your device. (Insert your jig into right-joycon rail and hold volume-up while powering it on)</li>
-        <li>Select one of the example payloads, or upload one.</li>
-        <li>Press 'Do the thing!'</li>
-        <li>On the consent screen that appears, select 'APX' and hit confirm. If APX does not appear, ensure your device is in RCM and connected.</li>
-        <li>If all goes well, the payload will launch!</li>
-      </ol>
-    </p>
-  </div>
-  
-  <!-- Designers -->
-  <div class="w3-container" id="additional" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>Extra Info</b></h1>
-    <hr style="width:50px;border:3px solid grey" class="w3-round">
-    <p>
-      <ul>
-        <li>Continue at your own risk!</li>
-        <li>This does NOT work on Windows due to a limitation in the Chrome implementation of WebUSB (and probably other reasons!) On Windows, you can use <a href="https://switchtools.sshnuke.net">TegraRcmSmash</a></li>
-        <li>This does NOT currently work on any browser except for Chrome, Opera, Microsoft Edge, Samsung Internet and QQ Browser. This is because they don't implement WebUSB. For up to date information, visit <a href="https://caniuse.com/webusb">caniuse.com/webusb</a>.</li>
-        <li>On Linux, you might get an access denied error!
-          If you do, you can try creating a file at <code>/etc/udev/rules.d/50-switch.rules</code>
-          <div>With the following contents:</div>
-          <div><code>SUBSYSTEM=="usb", ATTR{idVendor}=="0955", MODE="0664", GROUP="plugdev"</code></div>
-        </li>
-        <li>This has been tested and appears to work on Linux, macOS, Android (unrooted) and Chromebooks.</li>
-      </ul>
-    </p>
-
-  </div>
-
-  <!-- Packages / Pricing Tables -->
-  <div class="w3-container" id="about" style="margin-top:75px">
-    <h1 class="w3-xxxlarge w3-text-blue-grey"><b>About</b></h1>
-    <hr style="width:50px;border:3px solid grey" class="w3-round">
-        <p>Fusee Launcher ported to JavaScript using WebUSB.</p>
-    <p>
-      Source can be found on <a href="https://github.com/webrcm/webrcm.github.io">GitHub</a> under the MIT license (or by hitting view source, there is no backend!).
-      <br>Ported from <a href="https://github.com/reswitched/fusee-launcher">fusee-launcher</a>.
-      <br>Thanks to ktemkin and ReSwitched for Fusée Gelée and a ton of other things!
-      <br>Web exploit code developed by <a href="https://github.com/atlas44/web-fusee-launcher">atlas44</a>.
-    </p>
   </div>
   
 <!-- End page content -->
