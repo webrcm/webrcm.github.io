@@ -114,19 +114,36 @@ document.getElementById("goButton").addEventListener("click", async () => {
   }
 
   if (!isDeviceConnected) {
+    // Step 1: Connect to the device
     logOutput("Requesting access to USB device...");
     try {
       device = await navigator.usb.requestDevice({ filters: [{ vendorId: 0x0955 }] });
-      isDeviceConnected = true;  // Device is connected
-      document.getElementById("goButton").innerText = "Press To inject payload!";
-      logOutput("Device connected! Press the button again to launch the payload.");
-      return; // Wait for the second click
+      isDeviceConnected = true; // Mark device as connected
+      button.innerText = "Press To Inject!";
+      logOutput(`Device connected: ${device.manufacturerName} ${device.productName}`);
     } catch (e) {
       logOutput(e);
-      return;
     }
+    return; // Wait for the second click to proceed
   }
 
+  // Step 2: Verify device connection
+  try {
+    await device.open(); // Check if the device is accessible
+  } catch (e) {
+    // If the device is no longer accessible, update the button and log output
+    logOutput("Device not connected.");
+    button.innerText = "Error: Device not connected";
+
+    setTimeout(() => {
+      button.innerText = "Press button to connect RCM.";
+    }, 3000);
+
+    isDeviceConnected = false; // Reset connection state
+    return;
+  }
+
+  // Step 3: Prepare and send the payload
   const payloadType = document.forms.mainForm.payload.value;
   logOutput(`Preparing to launch ${payloadType}...`);
 
@@ -141,12 +158,12 @@ document.getElementById("goButton").addEventListener("click", async () => {
   } else {
     let payloadURL = 'payloads/' + payloadType;
 
-    var xhr = new XMLHttpRequest();
-    xhr.open('GET', payloadURL, true);
-    xhr.responseType = 'arraybuffer';
-    xhr.onload = function(e) {
-      var uInt8Array = new Uint8Array(this.response);
-      launchPayload(uInt8Array);
+    const xhr = new XMLHttpRequest();
+    xhr.open("GET", payloadURL, true);
+    xhr.responseType = "arraybuffer";
+    xhr.onload = function () {
+      const uInt8Array = new Uint8Array(this.response);
+      launchPayload(uInt8Array); // Inject the payload
     };
     xhr.send();
     return;
@@ -155,7 +172,11 @@ document.getElementById("goButton").addEventListener("click", async () => {
   launchPayload(payload);
 });
 
-document.getElementById("payloadUpload").addEventListener("change", () => document.forms.mainForm.payload.value = "uploaded");
-
-// Initialize button text
-document.getElementById("goButton").innerText = "Press button to connect RCM.";
+// Reset button text on payload upload
+document.getElementById("payloadUpload").addEventListener("change", () => {
+  document.forms.mainForm.payload.value = "uploaded";
+  const button = document.getElementById("goButton");
+  if (!isDeviceConnected) {
+    button.innerText = "Press button to connect RCM.";
+  }
+});
