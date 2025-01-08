@@ -106,6 +106,8 @@ async function launchPayload(payload) {
 }
 
 document.getElementById("goButton").addEventListener("click", async () => {
+  const button = document.getElementById("goButton");
+
   if (!navigator.usb) {
     logOutput("Browser does not support WebUSB! See the instructions below.");
     return;
@@ -116,6 +118,7 @@ document.getElementById("goButton").addEventListener("click", async () => {
     try {
       device = await navigator.usb.requestDevice({ filters: [{ vendorId: 0x0955 }] });
       isDeviceConnected = true;  // Device is connected
+      document.getElementById("goButton").innerText = "Press To inject payload!";
       logOutput("Device connected! Press the button again to launch the payload.");
       return; // Wait for the second click
     } catch (e) {
@@ -136,7 +139,6 @@ document.getElementById("goButton").addEventListener("click", async () => {
     }
     payload = new Uint8Array(await readFileAsArrayBuffer(file));
   } else {
-    // TODO: these stopped working at some point, the auto-fetching of payloads
     let payloadURL = 'payloads/' + payloadType;
 
     var xhr = new XMLHttpRequest();
@@ -144,7 +146,7 @@ document.getElementById("goButton").addEventListener("click", async () => {
     xhr.responseType = 'arraybuffer';
     xhr.onload = function(e) {
       var uInt8Array = new Uint8Array(this.response);
-      launchPayload(uInt8Array); // launch payload when the response is loaded
+      launchPayload(uInt8Array);
     };
     xhr.send();
     return;
@@ -154,3 +156,6 @@ document.getElementById("goButton").addEventListener("click", async () => {
 });
 
 document.getElementById("payloadUpload").addEventListener("change", () => document.forms.mainForm.payload.value = "uploaded");
+
+// Initialize button text
+document.getElementById("goButton").innerText = "Press button to connect RCM.";
