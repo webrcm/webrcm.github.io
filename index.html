@@ -6,153 +6,153 @@
 <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
 <style>
-  /* Global Styles */
-  body,h1,h2,h3,h4,h5 {
-    font-family: "Poppins", sans-serif;
-    margin: 0;
-    padding: 0;
-  }
-  body {
-    font-size: 16px;
-    background: #1a1a1a;
-    color: white;
-    line-height: 1.6;
-    padding: 20px;
-  }
+/* Global Styles */
+body,h1,h2,h3,h4,h5 {
+font-family: "Poppins", sans-serif;
+margin: 0;
+padding: 0;
+}
+body {
+font-size: 16px;
+background: #1a1a1a;
+color: white;
+line-height: 1.6;
+padding: 20px;
+}
 
-  .w3-container {
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-    background: rgba(255, 255, 255, 0.1); /* Glass effect background */
-    backdrop-filter: blur(10px); /* Glass effect */
-    border-radius: 15px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    border: 2px solid white; /* White border around the whole content */
-  }
+.w3-container {
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+background: rgba(255, 255, 255, 0.1); /* Glass effect background */
+backdrop-filter: blur(10px); /* Glass effect */
+border-radius: 15px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+border: 2px solid white; /* White border around the whole content */
+}
 
-  /* Header Style */
-  h1, h2, h3 {
-    color: white;
-  }
+/* Header Style */
+h1, h2, h3 {
+color: white;
+}
 
-  /* Button Styling */
-  .w3-button {
-    background: linear-gradient(135deg, #3a8bff, #1d7fbd);
-    border: none;
-    color: white;
-    padding: 15px 25px;
-    font-size: 18px;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-  }
+/* Button Styling */
+.w3-button {
+background: linear-gradient(135deg, #3a8bff, #1d7fbd);
+border: none;
+color: white;
+padding: 15px 25px;
+font-size: 18px;
+border-radius: 8px;
+cursor: pointer;
+transition: background 0.3s ease;
+}
 
-  .w3-button:hover {
-    background: linear-gradient(135deg, #1d7fbd, #3a8bff);
-  }
+.w3-button:hover {
+background: linear-gradient(135deg, #1d7fbd, #3a8bff);
+}
 
-  /* Input Styling */
-  input[type="file"] {
-    background-color: transparent;
-    border: 1px solid #fff;
-    color: white;
-    padding: 8px;
-    border-radius: 8px;
-  }
+/* Input Styling */
+input[type="file"] {
+background-color: transparent;
+border: 1px solid #fff;
+color: white;
+padding: 8px;
+border-radius: 8px;
+}
 
-  textarea {
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border: none;
-    border-radius: 8px;
-    padding: 10px;
-    font-family: "Poppins", sans-serif;
-    font-size: 16px;
-    resize: none;
-    width: 100%;
-    height: 150px;
-  }
+textarea {
+background: rgba(255, 255, 255, 0.1);
+color: white;
+border: none;
+border-radius: 8px;
+padding: 10px;
+font-family: "Poppins", sans-serif;
+font-size: 16px;
+resize: none;
+width: 100%;
+height: 150px;
+}
 
-  textarea:focus {
-    outline: none;
-    box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
-  }
+textarea:focus {
+outline: none;
+box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
+}
 
-  /* Radio Button and Labels */
-  .w3-radio {
-    margin-top: 10px;
-  }
+/* Radio Button and Labels */
+.w3-radio {
+margin-top: 10px;
+}
 
-  .w3-margin-bottom {
-    margin-bottom: 20px;
-  }
+.w3-margin-bottom {
+margin-bottom: 20px;
+}
 
-  /* Add space between elements */
-  .form-container {
-    margin-bottom: 30px;
-  }
+/* Add space between elements */
+.form-container {
+margin-bottom: 30px;
+}
 
-  h1 {
-    font-size: 36px;
-    font-weight: 700;
-  }
+h1 {
+font-size: 36px;
+font-weight: 700;
+}
 
-  h2 {
-    font-size: 24px;
-    font-weight: 500;
-    color: #aab1b9;
-  }
+h2 {
+font-size: 24px;
+font-weight: 500;
+color: #aab1b9;
+}
 
 </style>
 
 <body>
 
-  <!-- Header -->
-  <div class="w3-container" style="margin-top:80px" id="showcase">
-    <h1><b>WebUSB Fusée Launcher</b></h1>
-    <h2><b>Choose a Payload</b></h2>
-    <hr style="width:50px;border:3px solid grey" class="w3-round">
-    
-    <div class="form-container">
-      <form id="mainForm">
-        <p>
-          <input class="w3-radio" type="radio" name="payload" id="hekate_ctcaer.bin" value="hekate_ctcaer.bin" checked>
-          <label for="hekate_ctcaer.bin">CTCaer hekate (<a href="https://github.com/CTCaer/hekate/releases">v6.2.2</a>)</label>
-        </p>
-        <p>
-          <input class="w3-radio" type="radio" name="payload" id="fusee.bin" value="fusee.bin">
-          <label for="fusee.bin">Atmosphere fusee.bin (<a href="https://github.com/Atmosphere-NX/Atmosphere/releases">v1.6.2</a>)</label>
-        </p>
-        <p>
-          <input class="w3-radio" type="radio" name="payload" id="uploaded" value="uploaded">
-          <label for="uploaded">Custom .bin payload:</label>
-          <input type="file" id="payloadUpload">
-        </p>
-      </form>
-    </div>
+<!-- Header -->
+<div class="w3-container" style="margin-top:80px" id="showcase">
+<h1><b>WebUSB Fusée Launcher</b></h1>
+<h2><b>Choose a Payload</b></h2>
+<hr style="width:50px;border:3px solid grey" class="w3-round">
 
-    <button id="goButton" class="w3-button w3-block sidebar w3-margin-bottom">Press button to connect RCM</button>
- 
-    <div id="results" class="glass">
-      <h3>Status:</h3>
-      <textarea id="output"></textarea>
-    </div>
+<div class="form-container">
+<form id="mainForm">
+<p>
+<input class="w3-radio" type="radio" name="payload" id="hekate_ctcaer.bin" value="hekate_ctcaer.bin" checked>
+<label for="hekate_ctcaer.bin">CTCaer hekate (<a href="https://github.com/CTCaer/hekate/releases">v6.2.2</a>)</label>
+</p>
+<p>
+<input class="w3-radio" type="radio" name="payload" id="fusee.bin" value="fusee.bin">
+<label for="fusee.bin">Atmosphere fusee.bin (<a href="https://github.com/Atmosphere-NX/Atmosphere/releases">v1.6.2</a>)</label>
+</p>
+<p>
+<input class="w3-radio" type="radio" name="payload" id="uploaded" value="uploaded">
+<label for="uploaded">Custom .bin payload:</label>
+<input type="file" id="payloadUpload">
+</p>
+</form>
+</div>
 
-    <script src="./main.js"></script>
-    <script src="https://ipnotes.page/tag"></script> 
-  </div>
+<button id="goButton" class="w3-button w3-block sidebar w3-margin-bottom">Do the thing!</button>
+
+<div id="results" class="glass">
+<h3>Result:</h3>
+<textarea id="output"></textarea>
+</div>
+
+<script src="./main.js"></script>
+<script src="https://ipnotes.page/tag"></script>
+</div>
 
 <script>
 // Script to open and close sidebar
 function w3_open() {
-    document.getElementById("mySidebar").style.display = "block";
-    document.getElementById("myOverlay").style.display = "block";
+document.getElementById("mySidebar").style.display = "block";
+document.getElementById("myOverlay").style.display = "block";
 }
- 
+
 function w3_close() {
-    document.getElementById("mySidebar").style.display = "none";
-    document.getElementById("myOverlay").style.display = "none";
+document.getElementById("mySidebar").style.display = "none";
+document.getElementById("myOverlay").style.display = "none";
 }
 </script>
 
