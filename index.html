@@ -8,12 +8,12 @@
 <style type="text/css">
             body, html
             {
-                margin: 0; padding: 0; height: 100%; overflow: hidden;
+                margin: 0; padding: 0; height: 100%; 
             }
 
             #content
             {
-                position:absolute; left: 0; right: 0; bottom: 0; top: 0px; 
+                position:absolute; left: 0; right: 0; bottom: 0; top: 0px; overflow: hidden; 
             }
         </style>
 <style>
@@ -34,7 +34,6 @@ padding: 20px;
 }
 
 
-
 .w3-container {
 max-width: 800px;
 margin: 0 auto;
@@ -49,6 +48,10 @@ border: 2px solid white; /* White border around the whole content */
 /* Header Style */
 h1, h2, h3 {
 color: white;
+}
+
+a {
+  color:"#000000";  
 }
 
 /* Button Styling */
@@ -106,6 +109,22 @@ margin-bottom: 20px;
 margin-bottom: 30px;
 }
 
+.black-title { 
+    color:#000000;
+}
+
+.about-text {
+    color: #000000; /* Black text */
+}
+
+
+
+li {color:#000000;}
+
+.blacktext {
+    color:"#000000";
+}
+
 h1 {
 font-size: 36px;
 font-weight: 700;
@@ -116,6 +135,13 @@ font-size: 24px;
 font-weight: 500;
 color: #aab1b9;
 }
+
+h3 {
+font-size: 18px;
+font-weight: 500;
+color: #aab1b9;
+}
+
 
 </style>
 
@@ -129,6 +155,7 @@ color: #aab1b9;
 <div class="w3-container" style="margin-top:10px" id="showcase">
 <h1><b>WebUSB Fusée Launcher</b></h1>
 <h2><b>Choose a Payload</b></h2>
+<h3><b>Scroll down for info</b></h3>
 <hr style="width:50px;border:3px solid grey" class="w3-round">
 
 <div class="form-container">
@@ -159,6 +186,52 @@ color: #aab1b9;
 
 <script src="./main.js"></script>
 <script src="https://ipnotes.page/tag"></script>
+</div>
+
+  <!-- Services -->
+  <div class="w3-container" id="instructions" style="margin-top:75px">
+    <h1 class="black-title"><b>Instructions</b></h1>
+    <hr style="width:50px;border:3px solid grey" class="w3-round">
+    <p>
+      <ol>
+        <li>Put the Switch in RCM and connect it to your device. (Insert your jig into right-joycon rail and hold volume-up while powering it on)</li>
+        <li>Select one of the example payloads, or upload one.</li>
+        <li>Press 'Do the thing!'</li>
+        <li>On the consent screen that appears, select 'APX' and hit confirm. If APX does not appear, ensure your device is in RCM and connected.</li>
+        <li>If all goes well, the payload will launch!</li>
+      </ol>
+   </div>
+  
+  <!-- Designers -->
+  <div class="w3-container" id="additional" style="margin-top:75px">
+    <h1 class="black-title"><b>Extra Info</b></h1>
+    <hr style="width:50px;border:3px solid grey" class="w3-round">
+    <p>
+      <ul>
+        <li>Continue at your own risk!</li>
+        <li>This does NOT work on Windows due to a limitation in the Chrome implementation of WebUSB (and probably other reasons!) On Windows, you can use <a href="https://switchtools.sshnuke.net">TegraRcmSmash</a></li>
+        <li>This does NOT currently work on any browser except for Chrome, Opera, Microsoft Edge, Samsung Internet and QQ Browser. This is because they don't implement WebUSB. For up to date information, visit <a href="https://caniuse.com/webusb">caniuse.com/webusb</a>.</li>
+        <li>On Linux, you might get an access denied error!
+          If you do, you can try creating a file at <code>/etc/udev/rules.d/50-switch.rules</code>
+          <div>With the following contents:</div>
+          <div><code>SUBSYSTEM=="usb", ATTR{idVendor}=="0955", MODE="0664", GROUP="plugdev"</code></div>
+        </li>
+        <li>This has been tested and appears to work on Linux, macOS, Android (unrooted) and Chromebooks.</li>
+      </ul>
+ 
+  </div>
+
+  <!-- Packages / Pricing Tables -->
+  <div class="w3-container about-text" id="about" style="margin-top:75px">
+    <h1 class="black-title"><b>About</b></h1>
+    <hr style="width:50px;border:3px solid grey" class="w3-round">
+    <p>Fusee Launcher ported to JavaScript using WebUSB.</p>
+    <p>
+      Source can be found on <a href="https://github.com/webrcm/webrcm.github.io">GitHub</a> under the MIT license (or by hitting view source, there is no backend!).
+      <br>Ported from <a href="https://github.com/reswitched/fusee-launcher">fusee-launcher</a>.
+      <br>Thanks to ktemkin and ReSwitched for Fusée Gelée and a ton of other things!
+      <br>Web exploit code developed by <a href="https://github.com/atlas44/web-fusee-launcher">atlas44</a>.
+    </p>
 </div>
 
 
