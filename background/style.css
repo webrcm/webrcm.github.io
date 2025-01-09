@@ -21,9 +21,9 @@
 }
 .waveWrapperInner {
     position: absolute;
-    width: 102%;
+    width: 110%;
     overflow: hidden;
-    height: 102%;
+    height: 110%;
     bottom: -1px;
     background-image: linear-gradient(to top, #86377b 20%, #27273c 80%);
 }
