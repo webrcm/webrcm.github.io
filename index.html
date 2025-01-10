@@ -45,6 +45,17 @@ box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
 border: 2px solid white; /* White border around the whole content */
 }
 
+.w3-container-2 {
+max-width: 800px;
+margin: 0 auto;
+padding: 20px;
+background: rgba(0, 0, 0, 0.1); /* Glass effect background */
+backdrop-filter: blur(10px); /* Glass effect */
+border-radius: 15px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.5);
+border: 2px white; /* White border around the whole content */
+}
+
 /* Header Style */
 h1, h2, h3 {
 color: white;
@@ -56,7 +67,7 @@ a {
 
 /* Button Styling */
 .w3-button {
-background:
+background:;
 border: none;
 color: white;
 padding: 15px 25px;
@@ -172,7 +183,7 @@ color: #bbbbbb;
 </p>
 <p>
 <input class="w3-radio" type="radio" name="payload" id="fusee.bin" value="fusee.bin">
-<label for="fusee.bin">Atmosphere fusee.bin (<a href="https://github.com/Atmosphere-NX/Atmosphere/releases">v1.8.0</a>)</label>
+<label for="fusee.bin">Atmosphere fusee.bin (<a href="https://github.com/Atmosphere-NX/Atmosphere/releases">v1.8</a>)</label>
 </p>
 <p>
 <input class="w3-radio" type="radio" name="payload" id="uploaded" value="uploaded">
@@ -194,7 +205,7 @@ color: #bbbbbb;
 </div>
 
   <!-- Services -->
-  <div class="w3-container" id="instructions" style="margin-top:75px">
+  <div class="w3-container-2" id="instructions" style="margin-top:75px">
     <h1 class="black-title"><b>Instructions</b></h1>
     <hr style="width:50px;border:3px solid grey" class="w3-round">
     <p>
@@ -208,7 +219,7 @@ color: #bbbbbb;
    </div>
   
   <!-- Designers -->
-  <div class="w3-container" id="additional" style="margin-top:75px">
+  <div class="w3-container-2" id="additional" style="margin-top:75px; ">
     <h1 class="black-title"><b>Extra Info</b></h1>
     <hr style="width:50px;border:3px solid grey" class="w3-round">
     <p>
@@ -227,7 +238,7 @@ color: #bbbbbb;
   </div>
 
   <!-- Packages / Pricing Tables -->
-  <div class="w3-container about-text" id="about" style="margin-top:75px">
+  <div class="w3-container-2 about-text" id="about" style="margin-top:75px ; margin-bottom:20px">
     <h1 class="black-title"><b>About</b></h1>
     <hr style="width:50px;border:3px solid grey" class="w3-round">
     <p>Fusee Launcher ported to JavaScript using WebUSB.</p>
@@ -238,8 +249,8 @@ color: #bbbbbb;
       <br>Web exploit code developed by <a href="https://github.com/atlas44/web-fusee-launcher">atlas44</a>.
     </p>
 </div>
-
-
+<div>a</div>
+<h2>UI made by lukkagge</h2>
 <script>
 // Script to open and close sidebar
 function w3_open() {
